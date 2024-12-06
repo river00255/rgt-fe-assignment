@@ -60,6 +60,31 @@ const getBookList = async ({ page }: { page: number }) => {
   }
 };
 
+export const searchBook = async ({
+  type,
+  query,
+  page,
+}: {
+  type: string;
+  query: string;
+  page: number;
+}) => {
+  try {
+    const response = await fetch(
+      `../api/books/search?type=${type}&query=${query}&page=${page}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return await response.json();
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 const getBook = async (id: string) => {
   try {
     const response = await fetch(`../api/books/${id}`, {

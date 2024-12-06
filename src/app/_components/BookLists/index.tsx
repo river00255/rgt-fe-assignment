@@ -15,11 +15,16 @@ const BookLists = () => {
   return (
     <>
       <div className={styles.list}>
+        {data && data.totalCount < 1 && (
+          <p style={{ margin: '20px 0', fontSize: '15px' }}>
+            등록된 도서가 없습니다.
+          </p>
+        )}
         {data?.book.map((item: BookItem) => (
           <BookPreview item={item} key={item.id} />
         ))}
       </div>
-      {data && (
+      {data && data.totalCount > 0 && (
         <Pagiantion
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

@@ -1,0 +1,33 @@
+.searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  select,
+  input {
+    border: 1px solid var(--main-slate);
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  select {
+    padding: 6px 12px;
+  }
+  input {
+    padding: 8px;
+    margin: 0 5px;
+    &::placeholder {
+      font-size: 13px;
+      color: var(--main-slate-deep);
+    }
+  }
+  button {
+    background: var(--main-slate-deep);
+    color: #f5f5f5;
+    padding: 8px 24px;
+    border-radius: 4px;
+    margin: 0 14px 0 0;
+    &:hover {
+      background: var(--main-slate);
+      color: #444;
+    }
+  }
+}

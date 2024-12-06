@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import './header.scss';
+import SearchForm from '../SearchForm';
 
 const Header = () => {
   return (
@@ -13,7 +14,7 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link href={'../add'}>도서등록</Link>
+            <Link href={'../book/add'}>도서등록</Link>
           </li>
         </ul>
       </nav>

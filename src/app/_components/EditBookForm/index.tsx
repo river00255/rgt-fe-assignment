@@ -8,6 +8,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteBook, updateBook } from '@/api-server';
 import { useRouter } from 'next/navigation';
 import { BookKeys } from '@/api-server/key';
+import BookCover from '../BookCover';
 
 const schema = z.object({
   isbn: z.string(),
@@ -99,6 +100,9 @@ const EditBookForm = ({ item }: { item: BookItem }) => {
       )}
       {/* <label htmlFor="cover">표지 이미지</label>
       <input type="file" /> */}
+      <div className={styles.thumbnail}>
+        <BookCover url={item.cover} title={item.title} />
+      </div>
       <span className={styles.buttons}>
         <button type="button" onClick={() => onDelelteSubmit(item.id)}>
           삭제하기
