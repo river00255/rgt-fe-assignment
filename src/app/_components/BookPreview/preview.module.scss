@@ -1,0 +1,25 @@
+.preview {
+  border: 1px solid var(--main-slate);
+  padding: 14px;
+  width: 256px;
+  height: 256px;
+  margin: 24px 32px;
+}
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50%;
+  > img {
+    max-width: 85px;
+    max-height: 129px;
+    object-fit: contain;
+  }
+}
+.text {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+  strong {
+    font-size: 15px;
+  }
+}

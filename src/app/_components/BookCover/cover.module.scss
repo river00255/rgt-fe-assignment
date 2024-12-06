@@ -1,0 +1,22 @@
+.cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50%;
+  > img {
+    max-width: 85px;
+    max-height: 129px;
+    object-fit: contain;
+  }
+}
+.placeholder {
+  width: 85px;
+  height: 129px;
+  background: var(--main-slate);
+  font-size: 14px;
+  color: var(--main-slate-deep);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

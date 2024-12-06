@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './reset.css';
+import './globals.scss';
+import Header from './_components/Header';
+import QueryProvider from '@/libs/QueryProvider';
 
 const pretendard = localFont({
   src: './fonts/PretendardVariable.woff2',
@@ -18,7 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={pretendard.className}>{children}</body>
+      <body className={pretendard.className}>
+        <QueryProvider>
+          <Header />
+          {children}
+        </QueryProvider>
+      </body>
     </html>
   );
 }
