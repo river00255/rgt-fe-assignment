@@ -9,3 +9,25 @@
     margin: 0 0 10px 0;
   }
 }
+
+// loading
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.donut {
+  width: 2rem;
+  height: 2rem;
+  margin: 2rem;
+  border-radius: 50%;
+  border: 0.3rem solid rgba(#979fd0, 0.3);
+  border-top-color: #979fd0;
+  animation: 1.5s spin infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
