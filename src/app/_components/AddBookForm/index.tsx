@@ -8,6 +8,8 @@ import { addBook } from '@/api-server';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { BookKeys } from '@/api-server/key';
+import { useState } from 'react';
+import InputImageFile from '../InputImageFile';
 
 const schema = z.object({
   isbn: z.string(),
@@ -15,10 +17,21 @@ const schema = z.object({
   author: z.string().trim().min(1, { message: '작가명을 입력하세요.' }),
   publisher: z.string(),
   description: z.string(),
-  quantity: z.number().gte(1, { message: '수량을 1권 이상 입력하세요.' }),
+  quantity: z
+    .number()
+    .gte(1, { message: '수량을 1권 이상 입력하세요.' })
+    .lte(999, { message: '999권 이하만 등록 가능합니다.' }),
 });
 
 const AddBookForm = () => {
+  const [image, setImage] = useState<{
+    url: string;
+    name: string;
+  }>({
+    url: '',
+    name: '',
+  });
+
   const {
     register,
     handleSubmit,
@@ -45,7 +58,7 @@ const AddBookForm = () => {
   const onSubmit: SubmitHandler<
     Omit<BookItem, 'id' | 'cover' | 'createdAt'>
   > = async (data) => {
-    addBookItem({ ...data, cover: '' });
+    addBookItem({ ...data, cover: image.url });
   };
 
   return (
@@ -65,7 +78,7 @@ const AddBookForm = () => {
       <label htmlFor="publisher">출판사명</label>
       <input type="text" {...register('publisher')} />
       <label htmlFor="description">설 명</label>
-      <input type="text" {...register('description')} />
+      <textarea {...register('description')} rows={3} />
       <label htmlFor="quantity">수 량</label>
       <input
         type="number"
@@ -75,8 +88,7 @@ const AddBookForm = () => {
       {errors.quantity?.message && (
         <span className={styles.errorMessage}>{errors.quantity?.message}</span>
       )}
-      {/* <label htmlFor="cover">표지 이미지</label>
-      <input type="file" /> */}
+      <InputImageFile image={image} setImage={setImage} />
       <button>등록하기</button>
     </form>
   );

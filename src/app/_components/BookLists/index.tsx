@@ -6,12 +6,21 @@ import BookPreview from '../BookPreview';
 import { BookItem } from '@/app/type';
 import styles from './list.module.scss';
 import Pagiantion from '../Pagination';
+import Loading from '@/app/loading';
 
 const BookLists = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data } = useQuery(bookQueries.getList({ page: currentPage }));
+  const { data, isLoading } = useQuery(
+    bookQueries.getList({ page: currentPage })
+  );
 
+  if (isLoading)
+    return (
+      <div className={styles.list}>
+        <Loading />
+      </div>
+    );
   return (
     <>
       <div className={styles.list}>

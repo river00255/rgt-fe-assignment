@@ -10,6 +10,18 @@
   }
 }
 
+// error
+.error {
+  width: 100%;
+  border: 1px solid var(--main-slate);
+  padding: 20px;
+  button {
+    background: var(--main-slate);
+    padding: 2px 20px;
+    margin: 10px 0 0 0;
+  }
+}
+
 // loading
 .loading {
   display: flex;

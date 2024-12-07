@@ -18,6 +18,29 @@
       outline: none;
     }
   }
+  textarea {
+    border: 1px solid var(--main-slate-deep);
+    padding: 7px;
+    border-radius: 4px;
+    margin: 4px 0 0 0;
+    resize: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  input[type='file'] {
+    color: var(--main-slate-deep);
+    font-size: 14px;
+    padding: 6px 7px;
+  }
+  input[type='file']::file-selector-button {
+    background-color: var(--main-slate);
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    padding: 2px 8px;
+    color: var(--main-slate-deep);
+  }
   @media (max-width: 768px) {
     max-width: calc(100% - 16px);
   }
@@ -40,7 +63,4 @@
       color: #444;
     }
   }
-}
-.thumbnail {
-  margin: 10px 0;
 }
