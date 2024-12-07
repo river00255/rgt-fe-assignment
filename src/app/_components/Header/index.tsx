@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import './header.scss';
-import SearchForm from '../SearchForm';
 
 const Header = () => {
   return (
